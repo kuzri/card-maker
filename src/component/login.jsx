@@ -1,20 +1,23 @@
 import React from 'react';
+import Header from './header';
+import Footer from './footer';
 
-const Login = (props) => {
+const Login = ({ authService }) => {
+
+    const onLogin = (event) => {
+        authService.login(event.currentTarget.textContent)
+            .then(console.log)
+    };
+
     return (
         <>
-            <div>
-                <img src="/images/logo.png" alt="img" />
-                <h2>Business Card Maker</h2>
-            </div>
-            <div>
-                <h1>Login</h1>
-                <button className={"google"}>Google</button>
-                <button className={"github"}>Github</button>
-            </div>
-            <footer>
-                <h3>copyrights ~~</h3>
-            </footer>
+            <Header />
+            <h1>Login</h1>
+            <ul>
+                <li><button onClick={onLogin}>Google</button></li>
+                <li><button onClick={onLogin}>Github</button></li>
+            </ul>
+            <Footer />
         </>
     )
 };

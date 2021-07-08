@@ -1,10 +1,13 @@
 import React from 'react';
-import Login from './component/login';
+import styles from './app.module.css';
+import Login from './component/login/login'
 
 function App({ authService }) {
   return (
-    <Login authService={authService} />
-  )
+    <div className={styles.app}>
+      <Login authService={authService} />
+    </div>
+  );
 }
 
 export default App;

@@ -8,7 +8,6 @@ import { useHistory } from 'react-router';
 
 const Login = ({ authService }) => {
 
-
   const history = useHistory();
   const goToMain = (uid) => {
     // history.push('/main');

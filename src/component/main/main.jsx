@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
+import Editor from '../editor/editor';
 import Footer from '../footer/footer';
 import Header from '../header/header';
-import { styles } from './main.module.css';
+import Preview from '../preview/preview';
+import styles from './main.module.css';
 
 
 function Main({ authService }) {
@@ -22,7 +24,11 @@ function Main({ authService }) {
 
     return (
         <section className={styles.main}>
-            <Header />
+            <Header onLogout={onLogout} />
+            <div className={styles.container}>
+                <Editor />
+                <Preview />
+            </div>
             <Footer />
         </section>
     )

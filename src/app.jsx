@@ -5,8 +5,7 @@ import Main from './component/main/main';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App({ authService }) {

@@ -6,6 +6,8 @@ const Card = ({ card }) => {
     const { id, name, job, theme, github, message, fileName, fileURL }
         = card;
     const url = fileURL || DEFAULT_IMG;
+
+
     return (
         <li className={`${styles.card} ${getStyles(theme)}`}>
             <img className={styles.avatar} src={url} alt="users_photo" />
@@ -16,9 +18,10 @@ const Card = ({ card }) => {
                 <p className={styles.message}>{message}</p>
             </div>
         </li>
-
     );
 };
+
+
 
 function getStyles(theme) {
     switch (theme) {

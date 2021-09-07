@@ -19,7 +19,7 @@ const CardAddform = ({onAdd}) => {
             id:Date.now(), // uuid
             name: nameRef.current.value || '',
             job: jobRef.current.value || '',
-            theme: themeRef.current.value,
+            theme: themeRef.current.value || 'light',
             github: githubRef.current.value || '',
             message: messageRef.current.value || '',
             fileName:'',

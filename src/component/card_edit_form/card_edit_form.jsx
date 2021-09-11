@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import styles from './card_edit_form.module.css'
 import Button from '../button/button'
-import ImageFileInput from '../img_file_input/img_file_input'
 
-const Card_edit_form = ({ card, updateCard, deleteCard }) => {
+const Card_edit_form = ({ card, updateCard, deleteCard, FileInput }) => {
 
-    const { name, job, theme, github, message, fileName, fileURL }
-    = card;
+    const { name, job, theme, github, message, fileName }
+        = card;
 
-    const onChange =(event)=>{
-        if(event.currentTarget == null){
+    const onChange = (event) => {
+        if (event.currentTarget == null) {
             return;
         }
         event.preventDefault();
         updateCard({
             ...card, [event.currentTarget.name]: event.currentTarget.value,
         })
-        
     }
-    const onSubmit = () =>{
+    const onFileChange = file => {
+        updateCard({
+            ...card,
+            fileName: file.name,
+            fileURL: file.url
+        })
+    }
+
+    const onSubmit = () => {
         deleteCard(card);
     }
-    return(
+    return (
         <form className={styles.form}>
             <input className={styles.input} type="text" name="name" value={name} onChange={onChange} />
             <input className={styles.input} type="text" name="job" value={job} onChange={onChange} />
@@ -29,13 +35,13 @@ const Card_edit_form = ({ card, updateCard, deleteCard }) => {
                 <option value="light">light</option>
                 <option value="dark">dark</option>
                 <option value="colorful">colorful</option>
-            </select> 
+            </select>
             <input className={styles.input} type="text" name="github" value={github} onChange={onChange} />
             <textarea className={styles.textarea} name="message" value={message} onChange={onChange}></textarea>
             <div className={styles.fileInput}>
-                <ImageFileInput/>
+                <FileInput name={name} onFileChange={onFileChange} />
             </div>
-                <Button name="Delete" onClick={onSubmit}/>
+            <Button name="Delete" onClick={onSubmit} />
         </form>
     )
 };

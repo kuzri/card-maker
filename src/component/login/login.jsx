@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 
 

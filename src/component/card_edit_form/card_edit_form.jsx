@@ -39,7 +39,7 @@ const Card_edit_form = ({ card, updateCard, deleteCard, FileInput }) => {
             <input className={styles.input} type="text" name="github" value={github} onChange={onChange} />
             <textarea className={styles.textarea} name="message" value={message} onChange={onChange}></textarea>
             <div className={styles.fileInput}>
-                <FileInput name={name} onFileChange={onFileChange} />
+                <FileInput name={fileName} onFileChange={onFileChange} />
             </div>
             <Button name="Delete" onClick={onSubmit} />
         </form>

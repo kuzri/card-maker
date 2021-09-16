@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './card.module.css';
 
 const DEFAULT_IMG = '/images/default_img.png';
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
     const { name, job, theme, github, message, fileURL }
         = card;
     const url = fileURL || DEFAULT_IMG;
-
-
     return (
         <li className={`${styles.card} ${getStyles(theme)}`}>
             <img className={styles.avatar} src={url} alt="users_photo" />
@@ -19,7 +17,7 @@ const Card = ({ card }) => {
             </div>
         </li>
     );
-};
+});
 
 
 

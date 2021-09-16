@@ -12,14 +12,16 @@ function App({ authService, FileInput, cardRepository }) {
   return (
     <Router>
       <Switch>
-        <div className={styles.app}>
-          <Route path="/" exact >
-            <Login authService={authService} />
-          </Route>
-          <Route path="/main">
-            <Main authService={authService} cardRepository={cardRepository} FileInput={FileInput} />
-          </Route>
-        </div>
+        <>
+          <div className={styles.app}>
+            <Route path="/" exact >
+              <Login authService={authService} />
+            </Route>
+            <Route path="/main">
+              <Main authService={authService} cardRepository={cardRepository} FileInput={FileInput} />
+            </Route>
+          </div>
+        </>
       </Switch>
     </Router>
   );
